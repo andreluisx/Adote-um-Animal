@@ -27,7 +27,7 @@ body{
 .div-animal{
     width: 70%;
     background-color: white;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px;
     border: solid 1px  var(--primary-color);
 }
 
@@ -53,6 +53,7 @@ body{
 
 .div-usuario{
     min-width: 30%;
+    
     background-color: white;
     border: solid 2px  var(--primary-color);
 }
@@ -78,11 +79,14 @@ body{
     object-fit: cover; /* Ajuste a imagem para cobrir o contêiner sem distorção */
 }
 
-.tudo p{
+.tudo .animal p{
     font-size: 17px;
     color: rgb(0, 0, 0);
 }
-
+.tudo .usuario p{
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+}
 
 .animal-dado{
     font-weight: bold;
@@ -119,5 +123,5 @@ body{
 }
 
 .button-area{
-    padding: 6% 0;
+    padding: 8% 0 0 4%;
 }

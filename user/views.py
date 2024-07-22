@@ -42,6 +42,10 @@ def register(request):
             messages.error(request, 'Todos os campos são obrigatórios.')
             return render(request, 'register.html', context)
 
+        if not validate_phone_number(number):
+            messages.error(request, 'Número de telefone inválido.')
+            return render(request, 'register.html', context)
+        
         if not validate_cpf(cpf):
             messages.error(request, 'CPF inválido.')
             return render(request, 'register.html', context)
@@ -52,7 +56,6 @@ def register(request):
             messages.error(request, 'Email inválido.')
             return render(request, 'register.html', context)
         
-
         if not validate_state(state):
             messages.error(request, 'Estado inválido.')
             return render(request, 'register.html', context)
@@ -64,21 +67,17 @@ def register(request):
         if password != second_password:
             messages.error(request, 'As senhas tem que ser iguais.')
             return render(request, 'register.html', context)
-
-        if not validate_phone_number(number):
-            messages.error(request, 'Número de telefone inválido.')
-            return render(request, 'register.html', context)
         
-        if User.objects.filter(cpf=cpf_numeros).exists():
-            messages.error(request, 'CPF já cadastrado.')
+        if User.objects.filter(user_name=username).exists():
+            messages.error(request, 'Nome de usuário já existe.')
             return render(request, 'register.html', context)
         
         if User.objects.filter(number=celular_numeros).exists():
             messages.error(request, 'Número já cadastrado.')
             return render(request, 'register.html', context)
         
-        if User.objects.filter(user_name=username).exists():
-            messages.error(request, 'Nome de usuário já existe.')
+        if User.objects.filter(cpf=cpf_numeros).exists():
+            messages.error(request, 'CPF já cadastrado.')
             return render(request, 'register.html', context)
         
         if User.objects.filter(email=email).exists():
