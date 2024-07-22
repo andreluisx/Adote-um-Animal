@@ -1,0 +1,86 @@
+body{
+    background-color: rgb(193, 193, 193);
+}
+
+/* NAVBAR */
+
+.login-aba {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.login-aba:hover {
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+}
+
+.container-fluid{
+    padding: 0 20px;
+}
+
+
+
+/* ------------------------- animal ------------------------ */
+.gender-icon {
+    max-width: 60%;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+}
+
+.animal-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    padding: 3px 0;
+}
+
+.date p{
+    font-size: 11px;
+}
+
+
+/* ------------------------- warnings ------------------------ */
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}

@@ -1,0 +1,14 @@
+{% load static %}
+
+<div class="usuario-infos">
+    <img src=" {% static "images/icons/anonimo.jpg" %}" alt="Foto do animal" class="rounded-photo">
+    <p><b>{{ animal.user.name }}</b></p>
+    <ul class="list-group">
+        <li class="list-group-item">Email: {{ animal.user.email }}</li>
+        <li class="list-group-item">Cidade: {{ animal.user.cidade }}</li>
+        <li class="list-group-item">Estado: {{ animal.user.estado }}</li>
+        <li class="list-group-item">Número: {{ animal.user.number }}</li>
+    </ul>
+
+    <div class='button-area'><a href="#"><button type="button" class="btn btn-dark">Tenho interesse</button></a></div>
+</div>

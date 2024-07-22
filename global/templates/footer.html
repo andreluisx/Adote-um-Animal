@@ -1,0 +1,42 @@
+<footer style="background-color: #2b3035; padding: 40px 0; color: white; font-family: Arial, sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; flex-wrap: wrap;">
+        
+        <!-- Área de Contato -->
+        <div style="flex: 1; min-width: 200px;">
+            <h3>Contato</h3>
+            <p>Email: <a href="mailto:contato@adocaoanimal.com" style="color: #66a9ec; text-decoration: none;">contato@adocaoanimal.com</a></p>
+            <p>Redes Sociais:</p>
+            <p>
+                <a href="https://www.facebook.com/adocaoanimal" style="color: #66a9ec; text-decoration: none; margin-right: 10px;">Facebook</a>|
+                <a href="https://www.instagram.com/adocaoanimal" style="color: #66a9ec; text-decoration: none; margin-left: 10px;">Instagram</a>
+            </p>
+        </div>
+
+        <!-- Área de Navegação -->
+        <div style="flex: 1; min-width: 200px;">
+            <h3>Navegação</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="/" style="color: #66a9ec; text-decoration: none; margin-bottom: 10px; display: block;">Início</a></li>
+                <li><a href="/sobre" style="color: #66a9ec; text-decoration: none; margin-bottom: 10px; display: block;">Sobre Nós</a></li>
+                <li><a href="/adocoes" style="color: #66a9ec; text-decoration: none; margin-bottom: 10px; display: block;">Adoções</a></li>
+                <li><a href="/contato" style="color: #66a9ec; text-decoration: none; margin-bottom: 10px; display: block;">Contato</a></li>
+            </ul>
+        </div>
+
+        <!-- Área de Copyright e Segurança -->
+        <div style="flex: 1; min-width: 200px;">
+            <h3>Copyright </h3>
+            <p>&copy; 2024 Adoção Animal. Todos os direitos reservados.</p>
+            <p>Desenvolvido por André Luís</p>
+            <p>Segurança: <a href="/politica-de-privacidade" style="color: #66a9ec; text-decoration: none;">Política de Privacidade</a> | <a href="/termos-de-uso" style="color: #66a9ec; text-decoration: none;">Termos de Uso</a></p>
+        </div>
+        
+    </div>
+    <div style="text-align: center; padding: 20px; font-size: 14px; color: #666;">
+        <p>Atualizado em: <span id="current-date"></span></p>
+    </div>
+    <script>
+        // Função para exibir a data atual
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('pt-BR');
+    </script>
+</footer>

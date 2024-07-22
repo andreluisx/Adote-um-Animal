@@ -1,0 +1,23 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px 50px 50px;
+}
+.ajustes{
+    margin-top: 15px;
+}
+
+.click-text{
+    padding-left: 20px;
+}
+
+.h2{
+    
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.register-cred{
+    padding-top: 2%;
+}

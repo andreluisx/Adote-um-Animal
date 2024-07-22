@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="recently-added">
+    <div class="header">
+        <h2>Adicionados recentemente</h2>
+        <div class="timer" id="timer">00:00:00</div>
+    </div>
+    
+    <div class="allSteps">
+        {% include "gComponents/animalCard.html" %}
+    </div>
+</div>
+
+<script>
+    let seconds = 0;
+    const timerElement = document.getElementById('timer');
+
+    setInterval(() => {
+        seconds++;
+        const hrs = Math.floor(seconds / 3600);
+        const mins = Math.floor((seconds % 3600) / 60);
+        const secs = seconds % 60;
+        
+        timerElement.textContent = 
+            `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }, 1000);
+</script>

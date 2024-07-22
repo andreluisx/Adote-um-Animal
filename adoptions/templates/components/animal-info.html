@@ -1,0 +1,12 @@
+<ul class="list-group list-group-flush">
+    <li class="list-group-item"> {% if animal.nome %}<b>Nome</b>:  {{animal.nome}} {% else %} <b>Nome</b>: Sem nome ainda... {% endif %} </li>
+    <li class="list-group-item"><b>Tipo</b>: {{ animal.tipo }}</li>
+    <li class="list-group-item"> {% if animal.cor %}<b>Cor</b>:  {{animal.cor}} {% else %} <b>Cor</b>: Não informada {% endif %} </li>
+    <li class="list-group-item"><b>Idade</b>: {{ animal.idade }} meses</li>
+    <li class="list-group-item"><b>Gênero</b>: {{ animal.genero }}</li>
+    <li class="list-group-item"><b>Raça</b>: {{ animal.raca }}</li>
+    <li class="list-group-item"><b>Mamando</b>: {{ animal.mamando }}</li>
+    <li class="list-group-item"><b>Vacinado</b>: {{ animal.vacinado }}</li>
+    <li class="list-group-item"><b>Disponivel</b>: {{ animal.disponivel }}</li>
+    <li class="list-group-item"><b>Anunciado em</b>: {{ animal.created_at }}</li>
+  </ul>

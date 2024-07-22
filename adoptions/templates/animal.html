@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "adoptions/animal.css" %}">
+{% endblock style %}
+
+
+{% block content %}
+<div class="background">
+    <div class="tudo">
+        <div class="div-animal">
+            <div class="animal">
+                <div class="alinhando">
+                    <div class="imagens">
+                        {% include "components/animal-img.html" %}
+                    </div>
+                    <div class="informacoes-animal">
+                        {% include "components/animal-info.html" %}
+                    </div>
+                </div>
+                <div class="descricao">
+                    <h4>Descricao:</h4>
+                    <p>{{ animal.descricao }}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="div-usuario">
+            <div class="usuario">
+                {% include "components/usuario.html" %}
+            </div>
+        </div>
+    </div>
+</div>   
+
+{% endblock content %}

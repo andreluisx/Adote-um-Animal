@@ -1,0 +1,123 @@
+body{
+    background-color: #d3cbcb;
+}
+
+.tudo{
+    display: flex;
+    flex-direction: row;
+    padding: 2% 5% 4% 5%;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.background{
+    
+    justify-content: center;
+    align-items: center;
+}
+
+:root {
+    --primary-color: #d4d3d3; /* Azul */
+    --secondary-color: #2ecc71; /* Verde */
+
+}
+
+
+.div-animal{
+    width: 70%;
+    background-color: white;
+    border-radius: 20px 0 0 20px;
+    border: solid 1px  var(--primary-color);
+}
+
+.animal{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.informacoes-animal{
+    padding: 0;
+    display: flex;
+    padding: 2% 0;
+}
+
+
+.imagem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.div-usuario{
+    min-width: 30%;
+    background-color: white;
+    border: solid 2px  var(--primary-color);
+}
+
+.carousel-container {
+    border-radius: 30px;
+    width: 100%;
+    min-width: 50%;
+    max-width: 400px; /* Ajuste conforme necessário */
+    max-height: 320px; /* Altura fixa */
+    margin: 0 auto; /* Centraliza o carrossel */
+    overflow: hidden; /* Oculta qualquer parte da imagem que ultrapassar o contêiner */
+    position: relative; /* Necessário para posicionar os controles corretamente */
+}
+
+.carousel-inner {
+    height: 80%; /* Garante que o carrossel ocupe toda a altura do contêiner */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajuste a imagem para cobrir o contêiner sem distorção */
+}
+
+.tudo p{
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+}
+
+
+.animal-dado{
+    font-weight: bold;
+}
+
+.alinhando{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+}
+
+.descricao{
+    border-top: solid 1px  var(--primary-color);
+    padding: 2% 5%;
+}
+
+.usuario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8% 5%;
+    background-color: white;
+}
+
+.rounded-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover; 
+    border: 2px solid #ccc; 
+}
+
+.button-area{
+    padding: 6% 0;
+}

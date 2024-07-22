@@ -1,0 +1,38 @@
+{% load static %}
+
+
+{% for animal in animals %}
+    <a href="{% url "adoptions:animal" animal.id %}" class="card-link">
+        <div class="card">
+
+            {% if animal.images.exists %}
+                {% for image in animal.images.all %}
+                    {% if forloop.counter0 <= 0 %} 
+                    <img src="{{ image.image.url }}" alt="Imagem do {{ animal.nome }}" style="max-height: 200px;">  
+                     {% endif %}
+                {% endfor %}
+            {% else %}
+                <img src="{% static 'images/animals/sem_foto.jpg' %}" alt="O animal {{ animal.nome }} está sem foto" style="max-height: 200px;">
+            {% endif %}
+
+            <div class='animal-info'>
+                <div class="card-body">
+                    <p class="card-text">Animal: <b>{{ animal.tipo }}</b></p>
+                    <p class="card-text">Raça: <b>{{ animal.raca }}</b></p>
+                    <p class="card-text">Idade: <b>{{ animal.idade }} meses</b></p>
+                    <p class="card-text">Estado: <b>{{ animal.user.estado }}</b></p>
+                </div>
+                <div class="gender">
+                    {% if animal.genero == 'Macho' %}
+                        <img class='gender-icon' src=" {% static "images/icons/male.png" %} " alt="male">
+                    {% elif animal.genero == 'Femêa' %}
+                        <img class='gender-icon' src=" {% static "images/icons/female.png" %} " alt="male" style="width: 80px; padding-right: 0px;">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="date">
+                <p class="card-text">Criado em: <b>{{ animal.created_at }}</b></p>
+            </div>
+        </div>
+    </a>
+{% endfor %}
