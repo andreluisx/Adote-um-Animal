@@ -1,0 +1,17 @@
+{% extends "components/minha_conta/base.html" %}
+{% load static %}
+{% block title %}Favoritos{% endblock title %}
+
+{% block pre_conteudo %}
+{% endblock pre_conteudo %}
+
+{% block conteudo %}
+    {% if animais %}
+        {% for animal in animais %}
+            <h1>{{animal.nome}}</h1> 
+        {% endfor %}
+    {% else %}
+    <h4>Lista vazia :(</h4>
+    {% endif %}
+{% endblock conteudo %}
+

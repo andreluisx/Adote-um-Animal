@@ -1,0 +1,15 @@
+{% extends "components/minha_conta/base.html" %}
+{% load static %}
+{% block title %}Meus animais{% endblock title %}
+
+{% block pre_conteudo %}
+{% endblock pre_conteudo %}
+
+{% block conteudo %}
+    {% if animais %}
+        {% include "gComponents/listagem.html" %}
+    {% else %}
+        <p>asdasdasd</p>
+    {% endif %}
+{% endblock conteudo %}
+

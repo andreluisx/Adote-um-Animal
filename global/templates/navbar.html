@@ -21,6 +21,7 @@
       
       {% if auth_user.is_authenticated %}
         <a class="login-aba" aria-current="page" href="{% url "user:sair" %}">Sair</a>
+        <a class="login-aba" aria-current="page" href="{% url "app:minha_conta" user.id %}">Minha conta</a>
       {% else %}
         <a class="login-aba" aria-current="page" href="{% url "user:registro" %}">Registrar-se</a>
         <a class="login-aba" aria-current="page" href="{% url "user:entrar" %}">Entrar</a>

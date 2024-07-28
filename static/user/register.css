@@ -2,22 +2,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 50px 50px 50px;
+    padding: 3% 7% 7% 7%;
 }
-.ajustes{
+
+.ajustes {
     margin-top: 15px;
 }
 
-.click-text{
+.click-text {
     padding-left: 20px;
 }
 
-.h2{
-    
+.h2 {
     text-align: center;
     padding-bottom: 15px;
 }
 
-.register-cred{
+.register-cred {
     padding-top: 2%;
+    margin-top: 20px; /* Adicionado para separar as credenciais do resto do formulário */
 }

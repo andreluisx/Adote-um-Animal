@@ -1,17 +1,15 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib import messages
-from .models import User
-from .utils.ValidationError import*
+from user.models import User
+from user.utils.ValidationError import*
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
-from django.contrib.auth import authenticate
-from django.contrib.auth import authenticate, login as auth_login
-from django.contrib.auth import logout as auth_logout
+from user.utils.states import STATES
 
 
 def register(request):
     if request.method == 'GET':
-        return render(request, 'register.html')
+        return render(request, 'register.html', {'states': STATES})
     
     if request.method == 'POST':
         name = request.POST.get('first_name')
@@ -32,6 +30,7 @@ def register(request):
             'state': state,
             'city': city,
             'cpf': cpf,
+            'states': STATES,
         }
         
         cpf_numeros = extract_numbers(cpf)
@@ -84,8 +83,6 @@ def register(request):
             messages.error(request, 'Email já existe.')
             return render(request, 'register.html', context)
         
-
-
         user = User(
             name=name,
             user_name=username,
@@ -99,24 +96,4 @@ def register(request):
         user.save()
 
         messages.success(request, 'Usuário registrado com sucesso!')
-        return render(request, 'register.html')
-
-def login(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-
-        user = authenticate(request, email=email, password=password)
-        if user is not None:
-            auth_login(request, user)
-            return redirect('/')
-        else:
-            messages.error(request, 'Credenciais inválidas.')
-
-    return render(request, 'login.html')
-
-
-def logout(request):
-    auth_logout(request)
-    messages.success(request, 'Você foi desconectado com sucesso.')
-    return redirect('/usuario/entrar')
+        return render(request, 'register.html', {'states': STATES})

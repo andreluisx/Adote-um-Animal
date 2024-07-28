@@ -1,18 +1,21 @@
 {% extends "base/base.html" %}
 {% load static %}
 
+
 {% block style %}
-    <link rel="stylesheet" href="{% static "home/home.css" %}">
+    <link rel="stylesheet" href="{% static "app/home.css" %}">
     <link rel="stylesheet" href="{% static "gComponents/animalCard.css" %}">
 {% endblock style %}
 
 
 {% block content %}
     
-    {% include "components/carousel.html" %}
-    {% include "components/recent.html" %}
-    {% include "components/animals.html" %}
-    {% include "components/informations.html" %}
+    {% include "components/home/carousel.html" %}
+    {% for animal in animals %}
+        {% include "components/home/recent.html" %}
+    {% endfor %}
+    {% include "components/home/animals.html" %}
+    {% include "components/home/informations.html" %}
     <div class="informations">
         
     </div>

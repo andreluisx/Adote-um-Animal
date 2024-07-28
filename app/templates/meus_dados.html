@@ -1,0 +1,44 @@
+{% extends "components/minha_conta/base.html" %}
+{% load static %}
+{% block title %}Meus Dados{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'app/minha_conta.css' %}">
+    <link rel="stylesheet" href="{% static 'app/meus_dados.css' %}">
+{% endblock style %}
+
+{% block pre_conteudo %}
+<div class="center-img">
+    <div class="imagem-div">
+        <img class="profile-img" src="{% static 'images/icons/anonimo.jpg' %}" alt="#">
+    </div>
+    
+</div>
+{% endblock pre_conteudo %}
+
+{% block conteudo %}
+    <div class="alteraveis">
+        <p>Nome: {{user.name}}</p>
+    </div>
+    <div class="alteraveis">
+        <p>Usuário: {{user.user_name}}</p>
+    </div>
+    <div class="alteraveis">
+        <p>CPF: {{user.cpf}}</p>
+    </div>
+    <div class="alteraveis">
+        <p>Número: {{user.number}}</p>
+    </div>
+    <div class="alteraveis">
+        <p>Estado: {{user.estado}}</p>
+    </div>
+    <div class="alteraveis">
+        <p>Cidade: </p>
+        <input class="input-alteravel" type="text" value={{ user.cidade }}>
+    </div>
+    </div>
+    <div class="button-div">
+    <input class="button-base" type="button" value="Editar Dados">
+    </div> 
+{% endblock conteudo %}
+

@@ -1,0 +1,16 @@
+<div class="listagem">
+    <div class="barra">
+        <form class='form-edit' action="">
+            {% csrf_token %}
+            <div class="juntos">
+                <input class="input-search" type="search" placeholder="Pequise por um animal">
+                <input type="submit" value="pesquisar">
+            </div>
+        </form>
+    </div>
+    <div class="lista">
+        {% for animal in animais %}
+            {% include "gComponents/animalCard.html" %}
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,33 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block style %} 
+<link rel="stylesheet" href="{% static "user/login.css" %}"> 
+<link rel="stylesheet" href="{% static 'user/mensagens.css' %}" />
+{% endblock style %}
+
+{% block content %}
+<div class="content">
+    <form class='login-input' method='POST'>
+        {% csrf_token %}
+        <p class="h2">Nova Senha para {{user.username}}</p>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+        <div class="form-group">
+        <label for="exampleInputPassword1">Senha</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+        </div>
+        <div class="form-group" style='margin-top: 10px;'>
+        <label for="exampleInputPassword1">Repita a senha</label>
+        <input type="password" name="confirm_password" class="form-control" id="exampleInputPassword1" placeholder="Repita a senha">
+        </div>
+        <button style='margin-top: 15px;' type="submit" method='POST' class="btn btn-primary">Alterar senha</button>
+    </form>
+</div>
+{% endblock content %}

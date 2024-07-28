@@ -7,7 +7,7 @@
 }
 .h2{
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 5%;
 }
 .login-input{
     
@@ -18,9 +18,13 @@
     box-shadow: 0px 6px 23px -1px rgba(0,0,0,0.35);
 }
 .form-check{
-    padding: 10% 8%;
+    padding: 7% 8%;
 }
 
 .click-text{
     padding-left: 20px;
+}
+
+.wrongpass{ 
+    padding: 2% 0;
 }

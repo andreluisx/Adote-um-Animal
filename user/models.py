@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import UserManager, AbstractBaseUser, PermissionsMixin
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator
+import uuid
 # Create your models here.
 
 class CustomUserManager(UserManager):
@@ -28,14 +29,12 @@ class CustomUserManager(UserManager):
         return self._create_user(email, password, **extrafields)
     
 class User(AbstractBaseUser, PermissionsMixin):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user_name = models.CharField(max_length=255, unique=True)
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=255)
     cpf=models.CharField(max_length=11)
-    number = models.IntegerField(validators=[
-            MaxValueValidator(100000000000),
-            MinValueValidator(10)
-        ])
+    number = models.IntegerField()
     cidade = models.CharField(max_length=225)
     estado = models.CharField(max_length=2)
     is_active = models.BooleanField(default=True)

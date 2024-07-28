@@ -1,0 +1,34 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "app/minha_conta.css" %}">
+    <link rel="stylesheet" href="{% static "gComponents/animalCard.css" %}">
+{% endblock style %}
+
+
+{% block content %}
+    <div class="total">
+        <div class="box">
+            <div class="barra-lateral" id="sidebar">
+                <h4>Minha conta</h4>
+                <ul>
+                    <a href="{% url "app:minha_conta" user.id %}"><div class="nav-conta"><li>Meus Dados</li></div></a>
+                    <a href="{% url "app:meus_animais" user.id %}"><div class="nav-conta"><li>Meus animais</li></div></a>
+                    <a href="{% url "app:favoritos" user.id %}"><div class="nav-conta"><li>Favoritos</li></div></a>
+                    <a href="#"><div class="nav-conta"><li>Deletar Conta</li></div></a>
+                </ul>
+            </div>
+            <div class="informacoes">
+                <div class="title">
+                    <h1 class="title-text">{% block title %}{% endblock title %}</h1>
+                </div>
+                {% block pre_conteudo %}{% endblock pre_conteudo %}
+                <div class="conteudo">
+                    {% block conteudo %}{% endblock conteudo %}
+                </div>
+                {% block conteudo_dois %}{% endblock conteudo_dois %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

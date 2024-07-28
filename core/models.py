@@ -6,6 +6,8 @@ from django.utils import timezone
 from django.db import models
 import uuid
 from ourAnimal import settings
+from django.conf import settings
+from datetime import timedelta
 
 
 class BaseModelManager(models.Manager):
@@ -65,3 +67,16 @@ class UserIndexedModel(BaseModel):
 
     class Meta:
         abstract = True  # Set this to True to create an abstract base model
+
+
+def get_default_expiry():
+    return timezone.now() + timedelta(hours=1)
+
+class Token(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    token = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField(default=get_default_expiry)
+
+    def is_valid(self):
+        return timezone.now() < self.expires_at

@@ -5,7 +5,7 @@ body{
 .tudo{
     display: flex;
     flex-direction: row;
-    padding: 2% 5% 4% 5%;
+    padding: 2% 12px 4% 12px;
     border-radius: 20px;
     flex-wrap: wrap;
     justify-content: center;
@@ -53,7 +53,7 @@ body{
 
 .div-usuario{
     min-width: 30%;
-    
+    border-radius: 20px;
     background-color: white;
     border: solid 2px  var(--primary-color);
 }
@@ -61,7 +61,7 @@ body{
 .carousel-container {
     border-radius: 30px;
     width: 100%;
-    min-width: 50%;
+    min-width: 60%;
     max-width: 400px; /* Ajuste conforme necessário */
     max-height: 320px; /* Altura fixa */
     margin: 0 auto; /* Centraliza o carrossel */
@@ -103,6 +103,8 @@ body{
 .descricao{
     border-top: solid 1px  var(--primary-color);
     padding: 2% 5%;
+    word-break: break-word;
+    white-space: normal;
 }
 
 .usuario{
@@ -111,7 +113,7 @@ body{
     align-items: center;
     text-align: center;
     padding: 8% 5%;
-    background-color: white;
+    
 }
 
 .rounded-photo {

@@ -9,7 +9,7 @@
                         {% endif %}
                 {% endfor %}
             {% else %}
-                <img class='image_animal' src="{% static 'images/animals/sem_foto.jpg' %}" alt="O animal {{ animal.nome }} está sem foto" style="max-height: 200px;">
+                <img src="{% static 'images/animals/sem_foto.jpg' %}" alt="O animal {{ animal.nome }} está sem foto" style="max-height: 200px;">
             {% endif %}
         </div>
         <div class="informacoes_animal">
@@ -23,12 +23,9 @@
                 {% if animal.genero == 'Macho' %}
                     <img class='gender-male' src=" {% static "images/icons/male.png" %} " alt="male">
                 {% elif animal.genero == 'Femêa' %}
-                    <img class='gender-female' src=" {% static "images/icons/female.png" %} " alt="male" style="width: 80px; padding-right: 0px;">
+                    <img class='gender-female' src=" {% static "images/icons/female.png" %} " alt="female" style="width: 80px; padding-right: 0px;">
                 {% endif %}
             </div>
-        </div>
-        <div class="date">
-            <p>Anunciado em: {{ animal.created_at|date:"d/m/Y" }}</p>
         </div>
     </div>
 </a>

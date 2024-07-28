@@ -1,0 +1,156 @@
+.total{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+    border: solid 1px #333;
+    margin: 6vh 2vh;
+    width: 95%;
+}
+
+.title{
+    text-align: center;
+    padding: 1vh 1vh;
+    border-bottom: solid 1px #333;
+}
+.barra-lateral{
+    border-right: solid 1px #333;
+    text-align: center;
+    padding: 3vh 0;
+    background-color: #333;
+    width: 22%;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+.barra-lateral a{
+    text-decoration: none;
+    color: white;
+}
+
+.nav-conta{
+    padding: 2vh 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+.nav-conta:hover{
+    background-color: rgb(69, 69, 69);
+    
+}
+
+.informacoes{
+    padding: 0;
+    width: 100%;
+
+}
+
+.conteudo{
+    padding: 4vh 0vh 4vh 0vh;
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.barra-lateral li{
+    list-style-type: none;
+    text-align: center;
+}
+.barra-lateral ul{
+    padding: 2vh 0;
+}
+
+.title-text{
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    margin: 0;
+}
+
+.alteraveis{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: solid 1px;
+    padding: 2vh 0;
+}
+
+.input-alteravel{
+    border: solid 1px #333;
+    padding-left: 7px;
+    margin-left: 1vh;
+    background-color: none;
+    color: #737373;
+}
+.conteudo p{
+    margin: 0;
+}
+
+.button-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4vh;
+}
+
+.button-base{
+    border: none;
+    background-color: #333;
+    color: white;
+    padding: 7px 12px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button-base:hover{
+    background-color: #434242;
+}
+.center-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3vh 0 0 0;
+    flex-direction: column;
+}
+
+.imagem-div {
+    width: 130px;
+    height: 130px;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    border: solid 1px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+@media (max-width: 600px) {
+    .imagem-div {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 400px) {
+    .imagem-div {
+        width: 100px;
+        height: 100px;
+    }
+}

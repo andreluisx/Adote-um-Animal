@@ -23,20 +23,80 @@ body{
     padding: 0 20px;
 }
 
+/* ------------------------- animal qu eu fiz ------------------------ */
 
-
-/* ------------------------- animal ------------------------ */
-.gender-icon {
-    max-width: 60%;
-    max-height: 60px;
-    width: auto;
-    height: auto;
+.animal-click{
+    text-decoration: none;
+    color: white;
 }
 
-.animal-info{
+.card_animal:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.card_animal{
+    border: solid 1px #333;
+    background-color: #333;
+    max-width: 240px;
+    color: white;
+    border-radius: 4px;
+    flex-direction: column;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.informacoes_animal{
+    border-top: solid 1px #333;
+    display: flex;
+    flex-direction: row;
+    
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    justify-content: space-between;
+    font-style: normal;
+    font-size: 14px;
+    padding: 2vh 0 3px 2vh;
+    text-shadow: 1px 1px 1px black;
+}
+
+.texto_animal{
+    max-width: 60%;
+    flex-wrap: wrap;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.genero_animal{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+}
+
+.imagem_animal {
+    width: 100%;
+    height: 28vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.image_animal {
+    width: 100%;
+    border-radius: 4px;
+    height: 100%;
+    object-fit: cover; 
+    max-height: 200px; 
+}
+
+.gender-male {
+   width: 60%;
+   height: 60%;
+}
+.gender-female {
+    height: 65%;
 }
 
 .date{
@@ -51,36 +111,3 @@ body{
     font-size: 11px;
 }
 
-
-/* ------------------------- warnings ------------------------ */
-
-.alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-
-.alert-info {
-    color: #31708f;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
-}
-
-.alert-success {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
-}
-
-.alert-warning {
-    color: #8a6d3b;
-    background-color: #fcf8e3;
-    border-color: #faebcc;
-}
-
-.alert-danger {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
-}
