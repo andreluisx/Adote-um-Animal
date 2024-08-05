@@ -6,12 +6,8 @@
 {% endblock pre_conteudo %}
 
 {% block conteudo %}
-    {% if animais %}
-        {% for animal in animais %}
-            <h1>{{animal.nome}}</h1> 
-        {% endfor %}
-    {% else %}
-    <h4>Lista vazia :(</h4>
-    {% endif %}
+        {% include "gComponents/listagem.html" %}
+        <p style="font-size: 12px; padding: 1rem; color: #777676; text-align: center;" >animais que você favoritou</p>
+
 {% endblock conteudo %}
 

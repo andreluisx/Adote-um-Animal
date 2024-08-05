@@ -1,7 +1,13 @@
 {% load static %}
 
 <div class="usuario-infos">
-    <img src=" {% static "images/icons/anonimo.jpg" %}" alt="Foto do animal" class="rounded-photo">
+    {% with animal.user.profile_image.first as profile_image %}
+            {% if profile_image %}
+                <img class="rounded-photo" src="{{ profile_image.image.url }}" alt="Profile Image">
+            {% else %}
+                <img class="rounded-photo" src="{% static 'images/icons/anonimo.jpg' %}" alt="Default Image">
+            {% endif %}
+        {% endwith %}
     <h5><b>{{ animal.user.name }}</b></h5>
     <ul class="list-group">
         <li class="list-group-item">Email: {{ animal.user.email }}</li>

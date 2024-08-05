@@ -10,18 +10,43 @@
 {% block pre_conteudo %}
 <div class="center-img">
     <div class="imagem-div">
-        <img class="profile-img" src="{% static 'images/icons/anonimo.jpg' %}" alt="#">
+        {% with user.profile_image.first as profile_image %}
+            {% if profile_image %}
+                <img class="profile-img" src="{{ profile_image.image.url }}" alt="Profile Image">
+            {% else %}
+                <img class="profile-img" src="{% static 'images/icons/anonimo.jpg' %}" alt="Default Image">
+            {% endif %}
+        {% endwith %}
     </div>
     
 </div>
 {% endblock pre_conteudo %}
 
 {% block conteudo %}
+<form method="post" enctype="multipart/form-data" action="{% url 'app:meus_dados' %}">
+    {% csrf_token %}
+    <div class="alteraveis alterar-img-div">
+        <p>Altere sua foto de perfil: </p>
+        <div>
+            <input type="file" name="profile_image" id="fileInput" style="display: none; cursor: pointer;" onchange="updateFileName()">
+
+            <!-- Botão personalizado que ativa o input file -->
+            <label for="fileInput" class="custom-file-upload">
+                Selecione um arquivo
+            </label>
+
+            <!-- Display do nome do arquivo selecionado -->
+            <p id="fileName">Nenhum arquivo selecionado</p>
+        </div>
+    </div>
     <div class="alteraveis">
         <p>Nome: {{user.name}}</p>
     </div>
     <div class="alteraveis">
         <p>Usuário: {{user.user_name}}</p>
+    </div>
+    <div class="alteraveis">
+        <p>Email: {{user.email}}</p>
     </div>
     <div class="alteraveis">
         <p>CPF: {{user.cpf}}</p>
@@ -32,13 +57,30 @@
     <div class="alteraveis">
         <p>Estado: {{user.estado}}</p>
     </div>
+    
     <div class="alteraveis">
         <p>Cidade: </p>
-        <input class="input-alteravel" type="text" value={{ user.cidade }}>
+        <input class="input-alteravel" name="cidade" type="text" value="{{ user.cidade }}">
     </div>
+    
     </div>
     <div class="button-div">
-    <input class="button-base" type="button" value="Editar Dados">
+        <input class="button-base" type="submit" value="Salvar alterações">
+    </form>
     </div> 
 {% endblock conteudo %}
 
+{% block js %}
+
+    function updateFileName() {
+        const fileInput = document.getElementById('fileInput');
+        const fileNameDisplay = document.getElementById('fileName');
+
+        if (fileInput.files.length > 0) {
+            fileNameDisplay.textContent = fileInput.files[0].name;
+        } else {
+            fileNameDisplay.textContent = 'Nenhum arquivo selecionado';
+        }
+    }
+
+{% endblock js %}

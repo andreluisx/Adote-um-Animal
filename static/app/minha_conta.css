@@ -2,20 +2,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
+}
+
+.nav-conta.active {
+    font-weight: bold;
+    background-color: rgb(69, 69, 69);
+    color: rgb(255, 255, 255); 
 }
 
 .box{
     display: flex;
     flex-direction: row;
-    border: solid 1px #333;
+    border: solid 0px #333;
     margin: 6vh 2vh;
     width: 95%;
+    -webkit-box-shadow: -1px 2px 22px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 2px 22px -2px rgba(0,0,0,0.75);
+    box-shadow: -1px 2px 22px -2px rgba(0,0,0,0.75);
 }
 
 .title{
     text-align: center;
     padding: 1vh 1vh;
     border-bottom: solid 1px #333;
+    background-color: #393838;
 }
 .barra-lateral{
     border-right: solid 1px #333;
@@ -23,7 +34,6 @@
     padding: 3vh 0;
     background-color: #333;
     width: 22%;
-    flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
     color: white;
@@ -38,25 +48,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    
 }
 
 .nav-conta:hover{
     background-color: rgb(69, 69, 69);
-    
 }
 
 .informacoes{
     padding: 0;
     width: 100%;
-
 }
 
 .conteudo{
-    padding: 4vh 0vh 4vh 0vh;
-    font-family: "Lato", sans-serif;
-    font-weight: 100;
+    padding: 1.5rem 0vh 4vh 0vh;
+    
+    
     font-style: normal;
 }
 
@@ -69,8 +75,7 @@
 }
 
 .title-text{
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
+    color: white;
     font-style: normal;
     margin: 0;
 }
@@ -89,7 +94,10 @@
     margin-left: 1vh;
     background-color: none;
     color: #737373;
+    width: 100%; 
+    max-width: 300px;
 }
+
 .conteudo p{
     margin: 0;
 }
@@ -112,6 +120,7 @@
 .button-base:hover{
     background-color: #434242;
 }
+
 .center-img {
     display: flex;
     justify-content: center;
@@ -133,18 +142,35 @@
 }
 
 .profile-img {
-    width: 100%;
-    height: auto;
+    width: 9rem;
+    height: 9rem;
     border: solid 1px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-
 @media (max-width: 600px) {
+    .box {
+        flex-direction: row;
+    }
+
     .imagem-div {
         width: 150px;
         height: 150px;
+    }
+
+    .alteraveis {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .input-alteravel {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .button-base {
+        width: 100%;
     }
 }
 

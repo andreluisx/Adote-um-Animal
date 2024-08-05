@@ -1,0 +1,47 @@
+.todos-animais{
+    display: flex;
+    
+    justify-content: center;
+   
+    flex-direction: row;
+}
+
+.tudo{
+    margin: 3rem 1rem 3rem 1rem;
+    border: solid 1px #333;
+    box-shadow: 0px 0px 10px 0.9px #000000;
+}
+
+p{
+    margin: 0px;
+}
+.input-search{
+    width: 50%;
+}
+
+.states {
+    max-width: 100% !important;
+}
+
+.title-page{
+    text-align: center;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    border: solid 1px #333;
+    background-color: #333;
+    color: white;
+}
+.title-page h3{
+    font-size: 50px;
+}
+
+.animais{
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.vazio{
+    padding-top: 0 !important;
+}

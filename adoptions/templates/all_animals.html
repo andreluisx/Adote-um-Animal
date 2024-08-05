@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}Meus animais{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "adoptions/all_animals.css" %}">
+{% endblock style %}
+
+
+{% block content %}
+        <div class="tudo">
+            <div class="title-page">
+                <h3>Todos os animais</h3>
+            </div>
+        
+            <div class="animais">
+                {% include "gComponents/listagem.html" %}
+                
+                <p style="font-size: 12px; padding: 1rem; color: #777676; text-align: center;" >todos os animais</p>
+            </div>
+        </div>
+{% endblock content %}
+

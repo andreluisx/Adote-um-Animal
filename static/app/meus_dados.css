@@ -1,3 +1,18 @@
-.informacoes{
-    padding: 2vh 5vh !important;
+.conteudo{
+    padding: 2vh 10% !important;
+}
+.button-div{
+    padding: 1vh 5% 5% 5% !important;
+}
+
+.alterar-img-div{
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.custom-file-upload{
+    text-decoration: underline;
+    color: rgb(13, 110, 253);
 }

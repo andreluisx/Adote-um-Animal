@@ -1,16 +1,57 @@
 <div class="listagem">
     <div class="barra">
-        <form class='form-edit' action="">
+        <form class='form-edit' method="get">
             {% csrf_token %}
             <div class="juntos">
-                <input class="input-search" type="search" placeholder="Pequise por um animal">
-                <input type="submit" value="pesquisar">
+                <div class="pesquisa-div">
+                    <select name="tipo" class="states tipo">
+                        <option value="" {% if not tipo_id %}selected{% endif %} disabled>Animal</option>
+                        {% for code, name in tipos %}
+                            <option value="{{ code }}" {% if tipo_id == code %}selected{% endif %}>{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="states" class="states">
+                        <option value="" {% if not estado %}selected{% endif %} disabled>Estado</option>
+                        {% for code, name in states %}
+                            <option value="{{ code }}" {% if estado == code %}selected{% endif %}>{{ name }}</option>
+                        {% endfor %}
+                    </select>
+                    <input name="pesquisa" value="{{ pesquisa }}" class="input-search" type="search" placeholder="Pesquise por uma raça...">
+                    <button class="button-search" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
             </div>
         </form>
     </div>
-    <div class="lista">
-        {% for animal in animais %}
-            {% include "gComponents/animalCard.html" %}
-        {% endfor %}
+    <div class="alinhando-lista">
+        {% if animais %}
+            <div class="lista">
+                {% for animal in animais %}
+                    {% include "gComponents/animalCard.html" %}
+                {% endfor %}
+            </div>       
+            <div class="pagination">
+                <span class="step-links">
+                    {% if animais.has_previous %}
+                        <a href="?page=1{% if pesquisa %}&pesquisa={{ pesquisa }}{% endif %}{% if estado %}&states={{ estado }}{% endif %}{% if tipo %}&tipo={{ tipo }}{% endif %}">&laquo; primeiro</a>
+                        <a href="?page={{ animais.previous_page_number }}{% if pesquisa %}&pesquisa={{ pesquisa }}{% endif %}{% if estado %}&states={{ estado }}{% endif %}{% if tipo %}&tipo={{ tipo }}{% endif %}">Anterior</a>
+                    {% endif %}
+                    <span class="current">
+                        Página {{ animais.number }} de {{ animais.paginator.num_pages }}.
+                    </span>
+                    {% if animais.has_next %}
+                        <a href="?page={{ animais.next_page_number }}{% if pesquisa %}&pesquisa={{ pesquisa }}{% endif %}{% if estado %}&states={{ estado }}{% endif %}{% if tipo %}&tipo={{ tipo }}{% endif %}">Próximo</a>
+                        <a href="?page={{ animais.paginator.num_pages }}{% if pesquisa %}&pesquisa={{ pesquisa }}{% endif %}{% if estado %}&states={{ estado }}{% endif %}{% if tipo %}&tipo={{ tipo }}{% endif %}">Última &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% else %}
+            <div class="lista">
+                <div class="vazio" style="justify-content: center; align-items: center; padding-top: 3rem;">
+                    <h5 style="text-align: center;">Você não tem animais nessa lista...</h5>
+                </div>
+            </div>
+        {% endif %}
     </div>
 </div>

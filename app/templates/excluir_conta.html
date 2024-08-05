@@ -1,0 +1,37 @@
+{% extends "components/minha_conta/base.html" %}
+{% load static %}
+{% block title %}Deletar Conta{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'app/minha_conta.css' %}">
+    <link rel="stylesheet" href="{% static 'app/excluir_conta.css' %}">
+{% endblock style %}
+
+{% block pre_conteudo %}
+<div class="center-img">
+    <div class="imagem-div">
+        {% with user.profile_image.first as profile_image %}
+            {% if profile_image %}
+                <img class="profile-img" src="{{ profile_image.image.url }}" alt="Profile Image">
+            {% else %}
+                <img class="profile-img" src="{% static 'images/icons/anonimo.jpg' %}" alt="Default Image">
+            {% endif %}
+        {% endwith %}
+    </div>
+    
+</div>
+{% endblock pre_conteudo %}
+
+{% block conteudo %}
+    <div class="alteraveis" style="justify-content: center; padding: 4vh 2vh 2vh 2vh; flex-direction: column;">
+        <p style="text-align: center;">Olá {{user.name}}, você deseja mesmo DELETAR sua conta?</p>
+        <p style="text-align: center;">⚠ ao clicar no botão sua conta será excluida instantaneamente ⚠</p>
+    </div>
+    <div class="button-div" style="padding: 4vh 2vh 0 2vh;">
+        <form method="post" action="{% url 'app:excluir_conta' %}">
+            {% csrf_token %}
+            <input class="button-base excluir" style="background-color: red;" type="submit" value="deletar conta">
+        </form>
+    </div> 
+{% endblock conteudo %}
+

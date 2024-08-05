@@ -6,26 +6,57 @@
     <link rel="stylesheet" href="{% static "gComponents/animalCard.css" %}">
 {% endblock style %}
 
-
 {% block content %}
     <div class="total">
         <div class="box">
             <div class="barra-lateral" id="sidebar">
                 <h4>Minha conta</h4>
                 <ul>
-                    <a href="{% url "app:minha_conta" user.id %}"><div class="nav-conta"><li>Meus Dados</li></div></a>
-                    <a href="{% url "app:meus_animais" user.id %}"><div class="nav-conta"><li>Meus animais</li></div></a>
-                    <a href="{% url "app:favoritos" user.id %}"><div class="nav-conta"><li>Favoritos</li></div></a>
-                    <a href="#"><div class="nav-conta"><li>Deletar Conta</li></div></a>
+                    <a href="{% url 'app:meus_dados' %}">
+                        <div class="nav-conta {% if request.resolver_match.url_name == 'meus_dados' %}active{% endif %}">
+                            <li>Meus Dados</li>
+                        </div>
+                    </a>
+                    <a href="{% url 'app:meus_animais' %}">
+                        <div class="nav-conta {% if request.resolver_match.url_name == 'meus_animais' %}active{% endif %}">
+                            <li>Meus Animais</li>
+                        </div>
+                    </a>
+                    <a href="{% url 'app:favoritos' %}">
+                        <div class="nav-conta {% if request.resolver_match.url_name == 'favoritos' %}active{% endif %}">
+                            <li>Favoritos</li>
+                        </div>
+                    </a>
+                    <a href="{% url 'app:sair_tela' %}">
+                        <div class="nav-conta {% if request.resolver_match.url_name == 'sair_tela' %}active{% endif %}">
+                            <li>Sair da Conta</li>
+                        </div>
+                    </a>
+                    <a href="{% url 'app:excluir_conta' %}">
+                        <div class="nav-conta {% if request.resolver_match.url_name == 'excluir_conta' %}active{% endif %}">
+                            <li>Deletar Conta</li>
+                        </div>
+                    </a>
                 </ul>
             </div>
             <div class="informacoes">
                 <div class="title">
                     <h1 class="title-text">{% block title %}{% endblock title %}</h1>
                 </div>
-                {% block pre_conteudo %}{% endblock pre_conteudo %}
+                {% block pre_conteudo %}
+                {% endblock pre_conteudo %}
                 <div class="conteudo">
-                    {% block conteudo %}{% endblock conteudo %}
+                    {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                                <div class="alert {{ message.tags }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% block conteudo %}
+                    {% endblock conteudo %}
                 </div>
                 {% block conteudo_dois %}{% endblock conteudo_dois %}
             </div>

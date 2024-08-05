@@ -1,31 +1,53 @@
 {% load static %}
+<header>
+  <nav class="nav-bar">
+      <div class="logo">
+        <a class="nav-link" href="{% url "app:home" %}"><h1>Doações</h1></a> 
+      </div>
+      <div class="nav-list">
+          <ul>
+              <li class="nav-item"><a href="{% url "adoptions:todos" %}" class="nav-link {% if request.resolver_match.url_name == 'todos' %}active{% endif %}">Adotar</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Doar</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Comprar</a></li>
+          </ul>
+      </div>
+      <div class="login-button logado">
+        {% if auth_user.is_authenticated %}
+          <a class="btn-image" href="{% url "app:meus_dados" %}">
+            <p>{{ user.user_name }}</p>
+            {% with user.profile_image.first as profile_image %}
+              {% if profile_image %}
+                  <img class="profile-img" src="{{ profile_image.image.url }}" alt="Profile Image">
+              {% else %}
+                  <img class="profile-img" src="{% static 'images/icons/anonimo.jpg' %}" alt="Default Image">
+              {% endif %}
+            {% endwith %}
+          </a>
+        {% else %}
+          <a class="btn btn-primary" href="{% url "user:entrar" %}">Entrar</a>
+          <a class="btn btn-secondary" href="{% url "user:registro" %}">Registrar-se</a>
+        {% endif %}
+      </div>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{% url "app:home" %}">Dodoar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-          <a class="nav-link active login-aba" aria-current="page" href="#">Adotar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active login-aba" aria-current="page" href="#">Doar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active login-aba" aria-current="page" href="#">Comprar</a>
-        </li>
+      <div class="mobile-menu-icon">
+          <button onclick="menuShow()"><img class="icon" src="{% static 'images/icons/menu_white_36dp.svg' %}" alt=""></button>
+      </div>
+  </nav>
+  <div class="mobile-menu">
+      <ul>
+          <li class="nav-item"><a href="{% url "adoptions:todos" %}" class="nav-link {% if request.resolver_match.url_name == 'todos' %}active{% endif %}">Adotar</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Doar</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Compras</a></li>
       </ul>
-      
-      {% if auth_user.is_authenticated %}
-        <a class="login-aba" aria-current="page" href="{% url "user:sair" %}">Sair</a>
-        <a class="login-aba" aria-current="page" href="{% url "app:minha_conta" user.id %}">Minha conta</a>
-      {% else %}
-        <a class="login-aba" aria-current="page" href="{% url "user:registro" %}">Registrar-se</a>
-        <a class="login-aba" aria-current="page" href="{% url "user:entrar" %}">Entrar</a>
-      {% endif %}
-    </div>
+
+      <div class="login-button">
+        {% if auth_user.is_authenticated %}
+          <a class="btn btn-primary" href="{% url "app:meus_dados" %}">Minha Conta</a>
+          <a class="btn btn-secondary" href="{% url "user:sair" %}">Sair</a>
+        {% else %}
+          <a class="btn btn-primary" href="{% url "user:entrar" %}">Entrar</a>
+          <a class="btn btn-secondary" href="{% url "user:registro" %}">Registrar-se</a>
+        {% endif %}
+      </div>
   </div>
-</nav>
+</header>
