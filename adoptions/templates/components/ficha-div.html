@@ -1,0 +1,33 @@
+<div class="ficha-div">
+    <div class="titulo-div"><h4>Ficha Técnica</h4></div>
+    <div class="cubo">
+        <div class="partedecima">
+            <div class="infos">
+                <ul class="list-group list-group-flush animal-list">
+                    <li class="list-group-item"><b>Tipo</b>: {{ animal.tipo }}</li>
+                    <li class="list-group-item">
+                        <b>Cor</b>: {% if animal.cor %}{{ animal.cor }}{% else %}Não informada{% endif %}
+                    </li>
+                    <li class="list-group-item"><b>Idade</b>: {{ animal.idade }} meses</li>
+                    <li class="list-group-item"><b>Mamando</b>: {{ animal.mamando }}</li>
+                    <li class="list-group-item"><b>Vacinado</b>: {{ animal.vacinado }}</li>
+                    <li class="list-group-item"><b>Castrado</b>: {{ animal.castrado }}</li>
+                    <li class="list-group-item"><b>Anunciado em</b>: {{ animal.created_at|date:"d/m/Y" }}</li>
+                </ul>
+            </div>
+            <div class="descricao">
+                <h5><b>Descrição:</b></h5>
+                <div class="box-desc">
+                    <p>{{ animal.descricao }}</p>
+                </div>
+                <p class="aviso">Se conter algo desrespeitoso aqui, denuncie pra gente!</p>
+            </div>
+        </div>
+        {% if animal.user == request.user %}
+            <button id="editar-button" class="button-animal editar semp">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <p>Editar Informações</p>
+            </button>
+        {% endif %}
+    </div>
+</div>

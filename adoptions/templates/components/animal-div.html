@@ -1,0 +1,28 @@
+<div class="animal-div">
+    <div class="titulo-div"><h4>Animal</h4></div>
+    <div class="cubo">
+        <div class="partedecima">
+            <div class="imagem-div">
+                {% include "components/carousel.html" %}
+            </div>
+            <div class="fast-info">
+                <ul class="list-group animal-list">
+                    <li class="list-group-item"> </p>{% if animal.nome %}Nome: <b>{{animal.nome}}</b> {% else %} Nome: <b>Sem nome ainda...</b> {% endif %}</p></li>
+                    <li class="list-group-item"><p>Raça: <b>{{animal.raca}}</p></b></li>
+                    <li class="list-group-item">Gênero: <b>{{animal.genero}}</b></li>
+                    <li class="list-group-item">Disponível: <b>{{ animal.disponivel }}</b></li>
+                </ul>
+            </div>
+        </div>
+        <button id="favorite-button" class="button-animal favoritar semp">
+            {% if is_favorited %}
+                <i class="fa-solid fa-heart"></i>
+                <p>Favoritar {% if animal.nome %} {{animal.nome}} {% endif %}</p>
+            {% else %}
+                <i class="fa-solid fa-heart-crack"></i>
+                <p style="margin-bottom: 0;">Tirar {% if animal.nome %} {{animal.nome}} {% endif %} dos favoritos</p>
+            {% endif %}
+        </button>
+    </div>
+</div>
+

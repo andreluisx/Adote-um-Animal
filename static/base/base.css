@@ -3,6 +3,16 @@ body{
    
 }
 
+/* --------- Botao de voltar -------- */
+
+.voltar{
+    text-align: center; 
+    color: rgb(240, 240, 240); 
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 /* NAVBAR */
 
 .nav-link.active {
@@ -196,7 +206,7 @@ header {
 .card_animal{
     border: solid 1px #333;
     background-color: #333;
-    max-width: 240px;
+    max-width: 220px;
     color: white;
     border-radius: 4px;
     flex-direction: column;
@@ -229,7 +239,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
+    width: 70px;
     padding: 1rem;
 }
 
@@ -254,9 +264,9 @@ header {
 .gender-female {
     width: auto;
     min-width: 4.2rem;
-    max-width: 100%;
+    max-width: 60%;
     height: auto;
-    max-height: 100%;
+    max-height: 60%;
     object-fit: contain;
 }
 

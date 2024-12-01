@@ -6,12 +6,15 @@ from adoptions.utils.tipos import TIPOS
 from django.contrib import messages
 from app.utils.image import is_valid_image_pillow
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
 # Create your views here.
 
 def home(request):
     animals = Animal.objects.all().order_by('-id')[:3]
     return render(request, 'home.html', {'animals': animals})
 
+@login_required(login_url=reverse_lazy('user:entrar'))
 def meus_dados(request):
     user = get_object_or_404(User, id=request.user.id)
 
@@ -36,6 +39,7 @@ def meus_dados(request):
 
     return render(request, 'meus_dados.html', {'user': user})
 
+@login_required(login_url=reverse_lazy('user:entrar'))
 def favoritos(request):
     animais = Animal.objects.filter(favorited_by=request.user).order_by('-id')
    
@@ -67,10 +71,9 @@ def favoritos(request):
 
     return render(request, 'favoritos.html',  context)
 
-
+@login_required(login_url=reverse_lazy('user:entrar'))
 def meus_animais(request):
     animais = Animal.objects.filter(user=request.user).order_by('-id')
-    tipos = Type.objects.all()
     
     pesquisa = request.GET.get('pesquisa', '')
     estado = request.GET.get('states', '')
@@ -100,6 +103,7 @@ def meus_animais(request):
 
     return render(request, 'meus_animais.html',  context)
 
+@login_required(login_url=reverse_lazy('user:entrar'))
 def excluir_conta(request):
     user = get_object_or_404(User, id=request.user.id)
 

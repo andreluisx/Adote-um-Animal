@@ -5,34 +5,34 @@
     <link rel="stylesheet" href="{% static "adoptions/animal.css" %}">
 {% endblock style %}
 
-
 {% block content %}
-<div class="background">
-    <div class="tudo">
-        <div class="div-animal">
-            <div class="animal">
-                <div class="alinhando">
-                    <div class="imagens">
-                        {% include "components/animal-img.html" %}
-                    </div>
-                    <div class="informacoes-animal">
-                        {% include "components/animal-info.html" %}
-                    </div>
-                </div>
-                <div class="descricao">
-                    <h4>Descricao:</h4>
-                    <p>{{ animal.descricao }}</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="div-usuario">
-            <div class="usuario">
-                {% include "components/usuario.html" %}
-            </div>
-        </div>
+    <div class="todos-div">
+        {% include "components/animal-div.html" %}
+        {% include "components/ficha-div.html" %}
+        {% include "components/dono-div.html" %}
     </div>
-</div>   
-
 {% endblock content %}
+
+
+{% block js %}
+    {% include "components/favoritar.js" %}
+    function addPulseEffect(button) {
+        var pulse = document.createElement('span');
+        pulse.className = 'pulse';
+        button.appendChild(pulse);
+
+        pulse.addEventListener('animationend', function() {
+            pulse.remove();
+        });
+    }
+
+    function showToast(message) {
+        var toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        
+        setTimeout(function() {
+            toast.classList.remove('show');
+        }, 3000); 
+    }
+{% endblock js %}

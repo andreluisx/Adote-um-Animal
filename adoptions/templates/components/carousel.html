@@ -1,0 +1,33 @@
+{% load static %}
+<div class="container mt-5">
+    <div class="carousel-container">
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                {% for image in images %}
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" aria-label="Slide {{ forloop.counter0 }}"></button>
+                {% endfor %}
+            </div>
+            <div class="carousel-inner">
+                {% if animal.images.exists %}
+                    {% for image in images %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <img src="{{ image.image.url }}" alt="Imagem do animal">
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="carousel-item active">
+                        <img class='image_animal' src="{% static 'images/animals/sem_foto.jpg' %}" alt="O animal {{ animal.nome }} está sem foto">
+                    </div>
+                {% endif %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>

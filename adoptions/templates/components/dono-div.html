@@ -1,0 +1,43 @@
+{% load static %}
+<div class="dono-div">
+    <div class="titulo-div dono-titulo"><h4>Dono</h4></div>
+    <div class="img-dono">
+        {% with animal.user.profile_image.first as profile_image %}
+            {% if profile_image %}
+                <img class="rounded-photo" src="{{ profile_image.image.url }}" alt="Profile Image">
+            {% else %}
+                <img class="rounded-photo" src="{% static 'images/icons/anonimo.jpg' %}" alt="Default Image">
+            {% endif %}
+        {% endwith %}
+        <h5><b>{{ animal.user.name }}</b></h5>
+    </div>
+    <div class="info-dono">
+        <ul class="list-group list-group-flush user-list">
+            <li class="list-group-item">Username: {{ animal.user.user_name }}</li>
+            <li class="list-group-item">Email: {{ animal.user.email }}</li>
+            <li class="list-group-item">Cidade: {{ animal.user.cidade }}</li>
+            <li class="list-group-item">Estado: {{ animal.user.estado }}</li>
+        </ul>
+    </div>
+    {% if animal.user != request.user %}
+        <div class="request-dono">
+            <button class="button-animal dono-button">
+                <i class="fa-solid fa-envelope"></i>
+                <p>Enviar e-mail</p>
+            </button>
+            <button class="button-animal dono-button">
+                <i class="fa-solid fa-comment"></i>
+                <p>Iniciar um chat</p>
+            </button>
+            <div class="aviso-div">
+                <p class="aviso">Inicie um chat com o anunciante!</p>
+            </div>
+        </div>
+    {% else %}
+        <div class="aviso-div" style="padding: 1rem;">
+            <p class="aviso">Você que criou o anuncio.</p>
+        </div>
+    {% endif %}
+
+    <a onclick="window.history.back()" class="voltar">← Voltar para a página anterior</a>
+</div>

@@ -1,17 +1,39 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Animal, Type
+from .models import Animal
 from .utils.states import STATES
 from .utils.tipos import TIPOS
+from user.models import User
 from django.core.paginator import Paginator
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required
+@require_POST
+def toggle_favorite(request, animal_id):
+    animal = get_object_or_404(Animal, pk=animal_id)
+    user = request.user
+
+    if animal in user.favoritos.all():
+        user.favoritos.remove(animal)
+        is_favorited = False
+    else:
+        user.favoritos.add(animal)
+        is_favorited = True
+
+    return JsonResponse({'is_favorited': is_favorited})
+
+@login_required(login_url='/usuario/entrar/')
 def animal(request, id):
     animal = get_object_or_404(Animal, pk=id)
+    is_favorited = User.objects.filter(user_name=request.user.user_name, favoritos=animal.id).exists()
     images = animal.images.all()
-    return render(request, 'animal.html', {'animal':animal, 'images':images})
-    
+    return render(request, 'animal.html', {'is_favorited':not is_favorited ,'animal':animal, 'images':images})
+
+
 def todos(request):
-    animais = Animal.objects.all().order_by('-id')
+    animais = Animal.objects.all().order_by('-id').filter(deleted_at=None)
 
     pesquisa = request.GET.get('pesquisa', '')
     estado = request.GET.get('states', '')

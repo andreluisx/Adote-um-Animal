@@ -22,6 +22,7 @@ class Animal(UserIndexedModel):
     idade = models.IntegerField()
     genero = models.CharField(max_length=6, choices=gender.CustomerGender.choices())
     vacinado = models.CharField(max_length=4, choices=sim_nao.CustomerChoice.choices())
+    castrado = models.CharField(max_length=4, choices=sim_nao.CustomerChoice.choices(), default=sim_nao.CustomerChoice.NAO)
     disponivel = models.CharField(max_length=4, choices=sim_nao.CustomerChoice.choices(), default=sim_nao.CustomerChoice.SIM)
     cor = models.CharField(max_length=125, blank=True, null=True)
     descricao = models.TextField()

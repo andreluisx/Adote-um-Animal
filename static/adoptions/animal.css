@@ -1,129 +1,283 @@
-body{
-    background-color: #d3cbcb;
-}
-
-.tudo{
+.todos-div{
     display: flex;
+    background-color: #333;
+    margin: 2rem 1rem;
     flex-direction: row;
-    padding: 2% 12px 4% 12px;
-    border-radius: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-}
-.background{
-    
-    justify-content: center;
-    align-items: center;
-}
-
-:root {
-    --primary-color: #d4d3d3; /* Azul */
-    --secondary-color: #2ecc71; /* Verde */
-
-}
-
-
-.div-animal{
-    width: 70%;
-    background-color: white;
-    border-radius: 20px;
-    border: solid 1px  var(--primary-color);
-}
-
-.animal{
-    display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
 }
 
-.informacoes-animal{
-    padding: 0;
-    display: flex;
-    padding: 2% 0;
-}
-
-
-.imagem{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.div-usuario{
-    min-width: 30%;
-    border-radius: 20px;
-    background-color: white;
-    border: solid 2px  var(--primary-color);
-}
-
-.carousel-container {
-    border-radius: 30px;
-    width: 100%;
-    min-width: 60%;
-    max-width: 400px; /* Ajuste conforme necessário */
-    max-height: 320px; /* Altura fixa */
-    margin: 0 auto; /* Centraliza o carrossel */
-    overflow: hidden; /* Oculta qualquer parte da imagem que ultrapassar o contêiner */
-    position: relative; /* Necessário para posicionar os controles corretamente */
-}
-
-.carousel-inner {
-    height: 80%; /* Garante que o carrossel ocupe toda a altura do contêiner */
-}
-
-.carousel-item img {
-    width: 100%;
+/* -------ANIMAL DIV ---------- */
+.cubo{
     height: 100%;
-    object-fit: cover; /* Ajuste a imagem para cobrir o contêiner sem distorção */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
-.tudo .animal p{
-    font-size: 17px;
-    color: rgb(0, 0, 0);
-}
-.tudo .usuario p{
-    font-size: 12px;
-    color: rgb(0, 0, 0);
+.animal-div{
+    display: flex;
+    flex: 1;
+    background-color: #f9f9f9;
+    flex-direction: column;
+    padding: 1rem;
+    border: solid 1px #333;
 }
 
-.animal-dado{
+.button-animal {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.button-animal:active {
+    transform: scale(0.85);
+    outline: none;
+}
+
+
+.fast-info{
+    display: flex;
+    margin-top: 1rem;
+}
+
+.list-group{
+    width: 100%;
+    text-align: center;
+    border-radius: 0px;
+}
+
+.favoritar{
+    display: flex;
+    background-color: rgb(255, 5, 38);
+    margin-top: 1rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.animal-div a {
+    text-decoration: none;
+    color: white;
     font-weight: bold;
 }
 
-.alinhando{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    
+.animal-div p{
+    margin-bottom: 1px;
 }
 
-.descricao{
-    border-top: solid 1px  var(--primary-color);
-    padding: 2% 5%;
-    word-break: break-word;
-    white-space: normal;
+.animal-list .list-group-item{
+    background-color: #f9f9f9;
+}
+.favoritar{
+    color: white !important;
+    border: solid 1px white;
+    padding: 0.6rem;
+    width: 100%;
 }
 
-.usuario{
+/* -------CARROSSEL IMAGEM ---------- */
+.imagem-div {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 8% 5%;
-    
+    margin-top: 1rem;
+    overflow: hidden;
+    margin-top: 0.4rem;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgb(82, 78, 78, 0.5);
+}
+
+
+
+/* -------FICHA DIV ---------- */
+.ficha-div{
+    display: flex;
+    background-color: #f9f9f9;
+    flex: 1;
+    padding: 1rem;
+    flex-direction: column;
+    border: solid #333;
+    border-width: 1px 0;
+}
+.infos{
+    margin: 1.4rem 0;
+}
+
+.box-desc{
+    border: solid 1px #dee2e6;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    margin-top: 0.7rem;
+}
+
+.aviso{
+    color: #adaaaa;
+    font-size: 12px;
+}
+
+.editar{
+    width: 100%;
+    background-color: rgb(24, 206, 18);
+    margin-top: 1rem;
+    height: 3rem;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border: none;
+}
+.semp p{
+    margin-bottom: 0 !important;
+}
+
+/* -------DONO DIV ---------- */
+.dono-div{
+    display: flex;
+    flex: 1;
+    padding: 1rem;
+    background-color: #333;
+    flex-direction: column;
+}
+
+.dono-titulo{
+    background-color: white !important;
+    color: #333 !important;
+}
+
+.img-dono {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    flex-direction: column;
+    color: white;
+    gap: 1rem;
 }
 
 .rounded-photo {
-    width: 100px;
-    height: 100px;
+    width: 6rem;
+    height: 6rem;
+    border: solid 1px;
     border-radius: 50%;
-    object-fit: cover; 
-    border: 2px solid #ccc; 
+    object-fit: cover;
 }
 
-.button-area{
-    padding: 8% 0 0 4%;
+.user-list .list-group-item{
+    background-color: #333;
+    color: white;
+}
+
+
+.info-dono{
+    margin-top: 1rem;
+}
+
+.button-animal{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.8rem;
+}
+
+.button-animal p{
+    margin-bottom: 3px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.aviso-div{
+    text-align: center;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.aviso-div p{
+    margin-bottom: 8px;
+}
+
+.dono-button{
+    width: 100%;
+    background-color: rgb(24, 206, 18);
+    margin-top: 1rem;
+    height: 3rem;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border: none;
+}
+
+/* -------TITULO DIV ---------- */
+.titulo-div{
+    background-color: #333;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    padding: 1rem;
+}
+
+.titulo-div h4{
+   
+    margin: 0;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .todos-div{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .ficha-div{
+        border-width: 0 1px;
+    }
+}
+
+
+.animal-div p,
+.box-desc p,
+.aviso,
+.button-animal p,
+.info-dono p,
+.dono-div p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Garantir que o texto quebre corretamente */
+.animal-div p,
+.box-desc p,
+.aviso,
+.button-animal p,
+.info-dono p,
+.dono-div p {
+    word-break: break-word; 
+    overflow-wrap: break-word; 
+    white-space: normal; 
+}
+
+/* Evita overflow e mantém o texto dentro do contêiner */
+.animal-div,
+.ficha-div,
+.dono-div {
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
+}
+
+.animal-div,
+.ficha-div,
+.dono-div {
+    max-width: 100%;
 }
