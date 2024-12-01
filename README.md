@@ -1,5 +1,7 @@
 # Adote um Animal
 
+<img src="https://github.com/user-attachments/assets/098b5bd7-03c0-4ff3-aff4-a71f55a0e486" alt="Tela Principal" width="200" />
+
 ## Estrutura do projeto
 
 Estrutura do repositorio:
