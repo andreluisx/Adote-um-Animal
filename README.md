@@ -59,3 +59,13 @@ Base de dados usada:
 ```
 Sqlite
 ```
+
+## :rocket: Tecnologias Utilizadas
+
+- **Front-end: Django Html, Css, Bootstrap**
+
+- **Back-end: Django**
+
+- **Versionamento: Git e GitHub**
+  
+- **Banco de dados: Sqlite**
